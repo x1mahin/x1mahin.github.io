@@ -1,1176 +1,300 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahin — Tech Enthusiast & Student</title>
-  <meta name="description" content="Personal portfolio of Mahin — a 17-year-old tech enthusiast and student from Khulna, Bangladesh." />
-  <meta name="author" content="SK Mahin" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahin Sheikh | Profile</title>
+    <style>
+        /* ফন্ট ইমপোর্ট */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-  <!-- Google Fonts: Clash Display + Syne for headings, DM Sans for body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            slate: {
-              950: '#0f172a',
-              900: '#0d1526',
-            },
-            accent: {
-              DEFAULT: '#6366f1',
-              light: '#818cf8',
-              violet: '#7c3aed',
-              cyan: '#22d3ee',
-            }
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 4s ease-in-out infinite',
-            'fade-up': 'fadeUp 0.8s ease forwards',
-            'shimmer': 'shimmer 2.5s linear infinite',
-            'spin-slow': 'spin 12s linear infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-20px)' },
-            },
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            shimmer: {
-              '0%': { backgroundPosition: '-200% center' },
-              '100%': { backgroundPosition: '200% center' },
-            },
-          },
-          backdropBlur: {
-            xs: '2px',
-          }
+        /* রিসেট এবং বেসিক সেটিংস */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
-    }
-  </script>
 
-  <style>
-    /* ─── Base & Resets ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; }
+        body {
+            background-color: #ffffff; /* পিওর হোয়াইট ব্যাকগ্রাউন্ড */
+            color: #2d3142;            /* সফট চারকোল টেক্সট */
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
 
-    html { scroll-behavior: smooth; }
+        /* মেইন কন্টেইনার */
+        .wrapper {
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+        }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: #0f172a;
-      color: #e2e8f0;
-      overflow-x: hidden;
-      cursor: none;
-    }
+        /* প্রোফাইল আইকন এরিয়া */
+        .avatar-space {
+            margin-bottom: 20px;
+        }
 
-    /* ─── Custom Cursor ──────────────────────────────────────────── */
-    .cursor-dot {
-      width: 8px; height: 8px;
-      background: #6366f1;
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.1s ease;
-    }
-    .cursor-ring {
-      width: 36px; height: 36px;
-      border: 1.5px solid rgba(99,102,241,0.5);
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
-    }
-    .cursor-ring.hovered {
-      width: 56px; height: 56px;
-      border-color: rgba(99,102,241,0.9);
-      background: rgba(99,102,241,0.07);
-    }
+        .avatar-space svg {
+            width: 64px;
+            height: 64px;
+            fill: none;
+            stroke: #df8543; /* ক্ল্যাসিক ওয়ার্ম অরেঞ্জ/টেরা-কোটা টোন */
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
 
-    /* ─── Noise texture overlay ──────────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.35;
-    }
+        /* নাম ও অ্যাক্টিভ স্ট্যাটাস ইন্ডিকেটর */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f5f6f8; /* লাইট গ্রে ব্যাকগ্রাউন্ড ব্যাজ */
+            border: 1px solid #e2e4e9;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            color: #2d3142;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 0.2px;
+        }
 
-    /* ─── Typography ─────────────────────────────────────────────── */
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4b8f56; /* সফট গ্রিন */
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+        }
 
-    .shimmer-text {
-      background: linear-gradient(90deg, #6366f1, #818cf8, #22d3ee, #818cf8, #6366f1);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 3s linear infinite;
-    }
+        .live-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #4b8f56;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
 
-    /* ─── Navbar ─────────────────────────────────────────────────── */
-    .nav-glass {
-      background: rgba(15, 23, 42, 0.72);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(99,102,241,0.12);
-    }
+        @keyframes blink {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
 
-    .nav-link {
-      position: relative;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #94a3b8;
-      letter-spacing: 0.03em;
-      transition: color 0.25s;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1.5px;
-      background: linear-gradient(90deg, #6366f1, #22d3ee);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover { color: #e2e8f0; }
-    .nav-link:hover::after { width: 100%; }
+        /* মেইন ইনফো বক্স */
+        .profile-card {
+            background-color: #ffffff; 
+            border: 1px solid #e2e4e9;   /* পিওর হোয়াইটের সাথে ম্যাচিং লাইট বর্ডার */
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); /* অত্যন্ত মৃদু শ্যাডো */
+        }
 
-    /* ─── Buttons ────────────────────────────────────────────────── */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.75rem;
-      background: linear-gradient(135deg, #6366f1, #7c3aed);
-      color: #fff;
-      border-radius: 9999px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 0 0 0 rgba(99,102,241,0);
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #818cf8, #6366f1);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(99,102,241,0.45);
-    }
-    .btn-primary:hover::before { opacity: 1; }
-    .btn-primary span { position: relative; z-index: 1; }
+        .card-section {
+            margin-bottom: 25px;
+        }
 
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.75rem;
-      background: transparent;
-      color: #818cf8;
-      border: 1.5px solid rgba(99,102,241,0.45);
-      border-radius: 9999px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      transition: all 0.25s;
-    }
-    .btn-outline:hover {
-      border-color: #6366f1;
-      background: rgba(99,102,241,0.1);
-      color: #e2e8f0;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(99,102,241,0.2);
-    }
+        .card-section:last-child {
+            margin-bottom: 0;
+        }
 
-    /* ─── Section headings ───────────────────────────────────────── */
-    .section-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.85rem;
-      background: rgba(99,102,241,0.12);
-      border: 1px solid rgba(99,102,241,0.25);
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #818cf8;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
+        .label-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7a8293;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
 
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #f1f5f9 30%, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .info-detail {
+            color: #1a1d24;
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-    /* ─── Cards ──────────────────────────────────────────────────── */
-    .card-glass {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(99,102,241,0.15);
-      border-radius: 1.25rem;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .card-glass:hover {
-      border-color: rgba(99,102,241,0.45);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 60px rgba(99,102,241,0.15);
-    }
+        /* সাইড-বাই-সাইড লিংক গ্রিড */
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
 
-    /* ─── Skill Tags ─────────────────────────────────────────────── */
-    .skill-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.85rem;
-      background: rgba(99,102,241,0.1);
-      border: 1px solid rgba(99,102,241,0.2);
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #a5b4fc;
-      transition: all 0.2s;
-    }
-    .skill-tag:hover {
-      background: rgba(99,102,241,0.2);
-      border-color: rgba(99,102,241,0.5);
-      color: #c7d2fe;
-      transform: scale(1.04);
-    }
+        .link-block {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa; /* হালকা অফ-হোয়াইট বাটন ব্যাকগ্রাউন্ড */
+            border: 1px solid #e2e4e9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s ease-in-out;
+        }
 
-    /* ─── Contact Form ───────────────────────────────────────────── */
-    .form-input {
-      width: 100%;
-      padding: 0.85rem 1.1rem;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1.5px solid rgba(99,102,241,0.2);
-      border-radius: 0.75rem;
-      color: #e2e8f0;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-    }
-    .form-input::placeholder { color: #475569; }
-    .form-input:focus {
-      border-color: #6366f1;
-      background: rgba(99,102,241,0.05);
-      box-shadow: 0 0 0 4px rgba(99,102,241,0.12), 0 0 20px rgba(99,102,241,0.1);
-    }
-    label.form-label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #64748b;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 0.45rem;
-    }
+        .link-block:hover {
+            border-color: #df8543; 
+            background-color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(223, 133, 67, 0.08);
+        }
 
-    /* ─── Glow Effects ───────────────────────────────────────────── */
-    .glow-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-    }
+        /* বাম পাশের বাটন পার্ট */
+        .block-label {
+            background-color: #edf0f2;
+            color: #4a4d5c;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+            border-right: 1px solid #e2e4e9;
+        }
 
-    /* ─── Floating social ────────────────────────────────────────── */
-    .social-float {
-      position: fixed;
-      left: 1.5rem;
-      bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      z-index: 50;
-    }
-    .social-float::after {
-      content: '';
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(99,102,241,0.5), transparent);
-    }
-    .social-icon {
-      color: #475569;
-      font-size: 1rem;
-      transition: color 0.25s, transform 0.25s;
-    }
-    .social-icon:hover {
-      color: #818cf8;
-      transform: translateY(-3px);
-    }
+        /* ডান পাশের লিংক পার্ট */
+        .block-target {
+            color: #5c6175;
+            text-decoration: none;
+            padding: 12px 14px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.15s;
+        }
 
-    /* ─── Scroll indicator ───────────────────────────────────────── */
-    .scroll-line {
-      position: fixed;
-      right: 1.5rem;
-      bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      z-index: 50;
-    }
-    .scroll-line::after {
-      content: '';
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(99,102,241,0.5), transparent);
-    }
-    .scroll-text {
-      writing-mode: vertical-rl;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      color: #475569;
-      text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-    }
+        .link-block:hover .block-target {
+            color: #df8543;
+            font-weight: 500;
+        }
 
-    /* ─── Hero heading ───────────────────────────────────────────── */
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(3.5rem, 10vw, 7.5rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
+        /* স্পেশাল হাইলাইট: মেইন ওয়েবসাইট বাটন */
+        .link-block.main-site {
+            border-color: #df8543;
+            background-color: rgba(223, 133, 67, 0.02);
+        }
 
-    /* ─── Grid lines background ──────────────────────────────────── */
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
-      background-size: 64px 64px;
-    }
+        .link-block.main-site .block-label {
+            background-color: #df8543;
+            color: #ffffff;
+            border-right-color: #df8543;
+        }
 
-    /* ─── Animated border gradient ───────────────────────────────── */
-    .border-gradient {
-      position: relative;
-    }
-    .border-gradient::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(99,102,241,0.6), rgba(34,211,238,0.3), rgba(124,58,237,0.5));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
+        .link-block.main-site:hover {
+            box-shadow: 0 4px 12px rgba(223, 133, 67, 0.15);
+        }
 
-    /* ─── Scroll animations ──────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+        /* ট্র্যাডিশনাল ক্লিন ফুটার */
+        footer {
+            font-size: 0.85rem;
+            color: #7a8293;
+            line-height: 1.5;
+        }
 
-    /* ─── Mobile menu ────────────────────────────────────────────── */
-    #mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    #mobile-menu.open {
-      max-height: 300px;
-    }
+        footer strong {
+            color: #2d3142;
+            font-weight: 600;
+        }
 
-    /* ─── Progress bar ───────────────────────────────────────────── */
-    #progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #6366f1, #22d3ee);
-      z-index: 9999;
-      transition: width 0.1s;
-      width: 0%;
-    }
-
-    /* ─── Timeline ───────────────────────────────────────────────── */
-    .timeline-item {
-      position: relative;
-      padding-left: 2rem;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, rgba(99,102,241,0.6), rgba(99,102,241,0.05));
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -5px; top: 4px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.2), 0 0 12px rgba(99,102,241,0.5);
-    }
-
-    /* ─── Project card extra ─────────────────────────────────────── */
-    .project-tag {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.65rem;
-      background: rgba(34,211,238,0.1);
-      border: 1px solid rgba(34,211,238,0.2);
-      border-radius: 9999px;
-      color: #67e8f9;
-      font-weight: 500;
-    }
-
-    /* ─── Footer ─────────────────────────────────────────────────── */
-    .footer-glow {
-      box-shadow: 0 -1px 0 rgba(99,102,241,0.15);
-    }
-
-    /* Hide floating sidebar on small screens */
-    @media (max-width: 1024px) {
-      .social-float, .scroll-line { display: none; }
-      body { cursor: auto; }
-      .cursor-dot, .cursor-ring { display: none; }
-    }
-  </style>
+        footer span {
+            display: block;
+            margin-top: 4px;
+            font-size: 0.8rem;
+            color: #a0a6b5;
+        }
+    </style>
 </head>
+<body>
 
-<body class="antialiased">
-
-  <!-- ══ Progress Bar ══════════════════════════════════════════════ -->
-  <div id="progress-bar"></div>
-
-  <!-- ══ Custom Cursor ════════════════════════════════════════════ -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
-
-  <!-- ══ Floating Social Links (Desktop) ══════════════════════════ -->
-  <div class="social-float">
-    <a href="https://github.com/skmahin" target="_blank" class="social-icon" title="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/skmahin" target="_blank" class="social-icon" title="LinkedIn">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://facebook.com/x1mahin" target="_blank" class="social-icon" title="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-  </div>
-
-  <!-- ══ Scroll Indicator (Desktop) ══════════════════════════════ -->
-  <div class="scroll-line">
-    <span class="scroll-text">Scroll</span>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       NAVIGATION
-  ══════════════════════════════════════════════════════════════════ -->
-  <nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-
-        <!-- Logo -->
-        <a href="#home" class="flex items-center gap-2 group">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:shadow-indigo-500/50 transition-shadow">
-            <span class="font-display font-bold text-white text-sm">M</span>
-          </div>
-          <span class="font-display font-bold text-white text-base tracking-tight">skmahin<span class="text-indigo-400">.com</span></span>
-        </a>
-
-        <!-- Desktop Nav Links -->
-        <div class="hidden md:flex items-center gap-8">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#contact" class="nav-link">Contact</a>
+    <div class="wrapper">
+        
+        <!-- প্রোফাইল আইকন -->
+        <div class="avatar-space">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
         </div>
 
-        <!-- CTA + Hamburger -->
-        <div class="flex items-center gap-3">
-          <a href="#contact" class="hidden md:inline-flex btn-primary text-sm py-2 px-4">
-            <span><i class="fas fa-paper-plane mr-1.5"></i>Let's Talk</span>
-          </a>
-          <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Toggle menu">
-            <span class="ham-line block w-5 h-0.5 bg-slate-300 rounded transition-all duration-300"></span>
-            <span class="ham-line block w-5 h-0.5 bg-slate-300 rounded transition-all duration-300"></span>
-            <span class="ham-line block w-3.5 h-0.5 bg-slate-300 rounded transition-all duration-300 self-end"></span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden border-t border-white/5">
-        <div class="py-4 flex flex-col gap-1">
-          <a href="#home" class="mobile-nav-link px-4 py-2.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg text-sm font-medium transition-all">Home</a>
-          <a href="#about" class="mobile-nav-link px-4 py-2.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg text-sm font-medium transition-all">About</a>
-          <a href="#projects" class="mobile-nav-link px-4 py-2.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg text-sm font-medium transition-all">Projects</a>
-          <a href="#contact" class="mobile-nav-link px-4 py-2.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg text-sm font-medium transition-all">Contact</a>
-          <div class="px-4 pt-2">
-            <a href="#contact" class="btn-primary w-full justify-center text-sm py-2.5">
-              <span><i class="fas fa-paper-plane mr-1.5"></i>Let's Talk</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       HERO SECTION
-  ══════════════════════════════════════════════════════════════════ -->
-  <section id="home" class="relative min-h-screen flex items-center grid-bg overflow-hidden">
-
-    <!-- Background Orbs -->
-    <div class="glow-orb w-96 h-96 bg-indigo-600/20 top-20 -left-32" style="animation: float 8s ease-in-out infinite;"></div>
-    <div class="glow-orb w-64 h-64 bg-violet-600/15 bottom-32 right-0" style="animation: float 6s ease-in-out infinite 2s;"></div>
-    <div class="glow-orb w-48 h-48 bg-cyan-500/10 top-1/2 left-1/2" style="animation: float 10s ease-in-out infinite 1s;"></div>
-
-    <!-- Decorative ring -->
-    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] border border-indigo-500/10 rounded-full pointer-events-none hidden lg:block"></div>
-    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[400px] h-[400px] border border-indigo-500/8 rounded-full pointer-events-none hidden lg:block"></div>
-
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-24 pb-16 relative z-10">
-      <div class="max-w-3xl">
-
-        <!-- Badge -->
-        <div class="section-badge mb-6 reveal" style="transition-delay:0s">
-          <i class="fas fa-circle text-green-400 text-xs animate-pulse"></i>
-          Available for opportunities
+        <!-- নামসহ লাইভ ব্যাজ -->
+        <div class="status-indicator">
+            <span class="live-dot"></span>
+            Mahin Sheikh
         </div>
 
-        <!-- Main heading -->
-        <h1 class="hero-name text-white mb-4 reveal" style="transition-delay:0.1s">
-          Hi, I'm <span class="shimmer-text">Mahin</span>
-        </h1>
-
-        <!-- Sub-headline -->
-        <p class="text-xl md:text-2xl font-display font-semibold text-slate-300 mb-4 reveal" style="transition-delay:0.2s">
-          Tech Enthusiast & Student
-        </p>
-        <p class="text-base text-slate-400 max-w-xl leading-relaxed mb-10 reveal" style="transition-delay:0.3s">
-          A curious 17-year-old from <span class="text-indigo-400 font-medium">Khulna, Bangladesh</span> — building things on the web, breaking things in the terminal, and learning something new every single day.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-wrap gap-4 mb-16 reveal" style="transition-delay:0.4s">
-          <a href="cv.pdf" download class="btn-primary">
-            <span><i class="fas fa-download mr-1.5"></i>Download CV</span>
-          </a>
-          <a href="#contact" class="btn-outline">
-            <i class="fas fa-arrow-right mr-1.5"></i>Get in Touch
-          </a>
-        </div>
-
-        <!-- Stats row -->
-        <div class="flex flex-wrap gap-8 reveal" style="transition-delay:0.5s">
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-3xl text-white">17</span>
-            <span class="text-xs text-slate-500 font-medium uppercase tracking-widest mt-0.5">Years Old</span>
-          </div>
-          <div class="w-px bg-white/10 hidden sm:block"></div>
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-3xl text-white">∞</span>
-            <span class="text-xs text-slate-500 font-medium uppercase tracking-widest mt-0.5">Curiosity</span>
-          </div>
-          <div class="w-px bg-white/10 hidden sm:block"></div>
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-3xl text-white">24<span class="text-indigo-400">/</span>7</span>
-            <span class="text-xs text-slate-500 font-medium uppercase tracking-widest mt-0.5">Learning Mode</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Scroll indicator arrow -->
-    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 opacity-40 hover:opacity-80 transition-opacity">
-      <span class="text-xs text-slate-500 tracking-widest uppercase font-medium">Explore</span>
-      <div class="w-px h-8 bg-gradient-to-b from-indigo-500 to-transparent"></div>
-    </a>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       ABOUT SECTION
-  ══════════════════════════════════════════════════════════════════ -->
-  <section id="about" class="py-28 relative overflow-hidden">
-
-    <!-- subtle glow -->
-    <div class="glow-orb w-72 h-72 bg-violet-700/10 top-0 right-20 pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-
-      <!-- Section header -->
-      <div class="mb-16 reveal">
-        <div class="section-badge"><i class="fas fa-user mr-1"></i> About Me</div>
-        <h2 class="section-title">Who is Mahin?</h2>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-
-        <!-- Left: story -->
-        <div class="space-y-6 reveal reveal-delay-1">
-
-          <!-- Timeline -->
-          <div class="space-y-8">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="mb-1 text-xs text-indigo-400 font-semibold uppercase tracking-widest">The Beginning</div>
-              <h3 class="font-display font-bold text-white text-lg mb-2">A Kid with a Laptop</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">It started with a <span class="text-indigo-300 font-medium">Dell Vostro 14</span> and an unquenchable thirst for understanding how things work. I tore apart HTML pages, experimented with Linux distros, and never looked back.</p>
+        <!-- মেইন ইনফরমেশনカード -->
+        <div class="profile-card">
+            
+            <!-- লোকেশন সেকশন -->
+            <div class="card-section">
+                <div class="label-title">📍 Current Location</div>
+                <div class="info-detail">Khulna, Bangladesh 🇧🇩</div>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="mb-1 text-xs text-indigo-400 font-semibold uppercase tracking-widest">Right Now</div>
-              <h3 class="font-display font-bold text-white text-lg mb-2">Exploring the Stack</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Currently a high school student in Khulna, Bangladesh — diving deep into web development, networking fundamentals, and open-source software. Every project is a new lesson.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="mb-1 text-xs text-indigo-400 font-semibold uppercase tracking-widest">The Vision</div>
-              <h3 class="font-display font-bold text-white text-lg mb-2">Building Real Things</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">My goal isn't just to write code — it's to build products that solve real problems for real people. One commit at a time.</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Right: cards grid -->
-        <div class="space-y-5 reveal reveal-delay-2">
+            <!-- লিংক এবং কন্টাক্ট ডিরেক্টরি -->
+            <div class="card-section">
+                <div class="label-title">🔗 Directory &amp; Contact</div>
+                <div class="links-container">
+                    
+                    
 
-          <!-- Setup card -->
-          <div class="card-glass p-6 border-gradient">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-violet-500/10 flex items-center justify-center border border-indigo-500/20">
-                <i class="fas fa-laptop text-indigo-400"></i>
-              </div>
-              <div>
-                <div class="font-display font-bold text-white text-sm">My Setup</div>
-                <div class="text-xs text-slate-500">Daily driver</div>
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-              <div class="bg-white/3 rounded-lg p-3 border border-white/5">
-                <i class="fas fa-computer text-slate-500 text-xs mb-1.5 block"></i>
-                <div class="text-xs font-semibold text-slate-300">Dell Vostro 14</div>
-                <div class="text-xs text-slate-600">Primary machine</div>
-              </div>
-              <div class="bg-white/3 rounded-lg p-3 border border-white/5">
-                <i class="fab fa-linux text-slate-500 text-xs mb-1.5 block"></i>
-                <div class="text-xs font-semibold text-slate-300">Linux / Windows</div>
-                <div class="text-xs text-slate-600">OS of choice</div>
-              </div>
-              <div class="bg-white/3 rounded-lg p-3 border border-white/5">
-                <i class="fas fa-code text-slate-500 text-xs mb-1.5 block"></i>
-                <div class="text-xs font-semibold text-slate-300">VS Code</div>
-                <div class="text-xs text-slate-600">Code editor</div>
-              </div>
-              <div class="bg-white/3 rounded-lg p-3 border border-white/5">
-                <i class="fab fa-git-alt text-slate-500 text-xs mb-1.5 block"></i>
-                <div class="text-xs font-semibold text-slate-300">Git & GitHub</div>
-                <div class="text-xs text-slate-600">Version control</div>
-              </div>
-            </div>
-          </div>
+                    <!-- পার্সোনাল ইমেইল -->
+                    <div class="link-block">
+                        <div class="block-label">Personal</div>
+                        <a href="mailto:smah@tuta.io" class="block-target">smah@tuta.io</a>
+                    </div>
 
-          <!-- Skills card -->
-          <div class="card-glass p-6">
-            <div class="font-display font-bold text-white text-sm mb-4 flex items-center gap-2">
-              <i class="fas fa-layer-group text-indigo-400 text-xs"></i>
-              Skills & Interests
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag"><i class="fab fa-html5 text-orange-400 text-xs"></i> HTML5</span>
-              <span class="skill-tag"><i class="fab fa-css3-alt text-blue-400 text-xs"></i> CSS3</span>
-              <span class="skill-tag"><i class="fab fa-js-square text-yellow-400 text-xs"></i> JavaScript</span>
-              <span class="skill-tag"><i class="fab fa-python text-blue-300 text-xs"></i> Python</span>
-              <span class="skill-tag"><i class="fab fa-github text-slate-300 text-xs"></i> Git</span>
-              <span class="skill-tag"><i class="fab fa-linux text-slate-300 text-xs"></i> Linux</span>
-              <span class="skill-tag"><i class="fas fa-network-wired text-indigo-300 text-xs"></i> Networking</span>
-              <span class="skill-tag"><i class="fas fa-palette text-pink-300 text-xs"></i> UI Design</span>
-              <span class="skill-tag"><i class="fas fa-terminal text-green-300 text-xs"></i> CLI</span>
-              <span class="skill-tag"><i class="fas fa-shield-alt text-cyan-300 text-xs"></i> Cybersecurity</span>
-            </div>
-          </div>
+                    <!-- বিজনেস ইমেইল -->
+                    <div class="link-block">
+                        <div class="block-label">Business</div>
+                        <a href="mailto:hi@mahin.pp.ua" class="block-target">hi@mahin.pp.ua</a>
+                    </div>
 
-          <!-- Fun fact -->
-          <div class="card-glass p-5 flex items-start gap-4">
-            <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
-              <i class="fas fa-lightbulb text-cyan-400 text-sm"></i>
-            </div>
-            <div>
-              <div class="font-display font-semibold text-white text-sm mb-1">Fun Fact</div>
-              <p class="text-slate-400 text-xs leading-relaxed">I debug code after midnight because that's when the bugs feel most alive — and I always win.</p>
-            </div>
-          </div>
+                    <!-- টেলিগ্রাম -->
+                    <div class="link-block">
+                        <div class="block-label">Telegram</div>
+                        <a href="https://t.me/SKMAHIN" target="_blank" class="block-target">t.me/SKMAHIN</a>
+                    </div>
 
-        </div>
-      </div>
-    </div>
-  </section>
+                    <!-- ফেসবুক -->
+                    <div class="link-block">
+                        <div class="block-label">Facebook</div>
+                        <a href="https://facebook.com/x1mahin" target="_blank" class="block-target">facebook.com/x1mahin</a>
+                    </div>
 
-  <!-- ══════════════════════════════════════════════════════════════
-       PROJECTS SECTION
-  ══════════════════════════════════════════════════════════════════ -->
-  <section id="projects" class="py-28 relative overflow-hidden">
+                    <!-- ইনস্টাগ্রাম -->
+                    <div class="link-block">
+                        <div class="block-label">Instagram</div>
+                        <a href="https://instagram.com/x1mahin" target="_blank" class="block-target">instagram.com/x1mahin</a>
+                    </div>
 
-    <!-- Grid BG accent -->
-    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
-    <div class="glow-orb w-80 h-80 bg-indigo-600/12 -bottom-20 left-0 pointer-events-none"></div>
+                    <!-- হোয়াটসঅ্যাপ -->
+                    <div class="link-block">
+                        <div class="block-label">WhatsApp</div>
+                        <a href="https://wa.me/8801729899948" target="_blank" class="block-target">+880 1729-899948</a>
+                    </div>
 
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-
-      <!-- Section header -->
-      <div class="mb-16 reveal">
-        <div class="section-badge"><i class="fas fa-code-branch mr-1"></i> Projects</div>
-        <h2 class="section-title">What I've Built</h2>
-        <p class="text-slate-400 mt-3 max-w-xl text-sm leading-relaxed">A collection of personal experiments, tools, and projects — each one taught me something new.</p>
-      </div>
-
-      <!-- Project grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Project 1 -->
-        <div class="card-glass p-6 group reveal reveal-delay-1">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-              <i class="fas fa-globe text-indigo-400"></i>
-            </div>
-            <div class="flex gap-2">
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm" title="Live">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-indigo-300 transition-colors">Personal Portfolio</h3>
-          <p class="text-slate-400 text-xs leading-relaxed mb-4">This very website — designed and built from scratch using HTML5 and Tailwind CSS with zero frameworks.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">Tailwind</span>
-            <span class="project-tag">CSS</span>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="card-glass p-6 group reveal reveal-delay-2">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-              <i class="fas fa-terminal text-cyan-400"></i>
-            </div>
-            <div class="flex gap-2">
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm"><i class="fab fa-github"></i></a>
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm"><i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-cyan-300 transition-colors">CLI Toolkit</h3>
-          <p class="text-slate-400 text-xs leading-relaxed mb-4">A collection of Bash and Python scripts I use daily — automating repetitive tasks on my Linux setup.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="project-tag">Bash</span>
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Linux</span>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="card-glass p-6 group reveal reveal-delay-3">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-              <i class="fas fa-network-wired text-violet-400"></i>
-            </div>
-            <div class="flex gap-2">
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm"><i class="fab fa-github"></i></a>
-              <a href="#" class="text-slate-600 hover:text-slate-300 transition-colors text-sm"><i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-violet-300 transition-colors">Network Notes</h3>
-          <p class="text-slate-400 text-xs leading-relaxed mb-4">A Markdown-based knowledge base documenting my networking studies — subnetting, protocols, and more.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="project-tag">Markdown</span>
-            <span class="project-tag">Networking</span>
-            <span class="project-tag">Notes</span>
-          </div>
-        </div>
-
-        <!-- Project 4 — Coming soon card -->
-        <div class="card-glass p-6 md:col-span-2 lg:col-span-1 group reveal reveal-delay-2 border-dashed" style="border-style: dashed; opacity:0.6;">
-          <div class="flex items-center justify-center h-full flex-col gap-3 py-6 text-center">
-            <div class="w-12 h-12 rounded-full border border-dashed border-indigo-500/30 flex items-center justify-center">
-              <i class="fas fa-plus text-indigo-500/60"></i>
-            </div>
-            <p class="text-slate-500 text-sm font-medium">More coming soon...</p>
-            <p class="text-slate-600 text-xs">Always building something</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- GitHub CTA -->
-      <div class="mt-10 text-center reveal">
-        <a href="https://github.com/skmahin" target="_blank" class="btn-outline inline-flex">
-          <i class="fab fa-github mr-2"></i>View all on GitHub
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       CONTACT SECTION
-  ══════════════════════════════════════════════════════════════════ -->
-  <section id="contact" class="py-28 relative overflow-hidden">
-
-    <div class="glow-orb w-96 h-96 bg-indigo-600/15 top-0 left-1/2 -translate-x-1/2 pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-
-      <!-- Section header -->
-      <div class="text-center mb-16 reveal">
-        <div class="section-badge inline-flex"><i class="fas fa-paper-plane mr-1"></i> Contact</div>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="text-slate-400 mt-3 max-w-lg mx-auto text-sm leading-relaxed">
-          Whether it's a project idea, a question, or just saying hi — my inbox is always open.
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-5 gap-10 items-start max-w-4xl mx-auto">
-
-        <!-- Left info -->
-        <div class="lg:col-span-2 space-y-5 reveal reveal-delay-1">
-
-          <div class="card-glass p-5 flex gap-4 items-start">
-            <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
-              <i class="fas fa-envelope text-indigo-400 text-sm"></i>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-0.5">Email</div>
-              <a href="mailto:hello@mahin.pp.ua" class="text-slate-300 text-sm hover:text-indigo-300 transition-colors">hello@mahin.pp.ua</a>
-            </div>
-          </div>
-
-          <div class="card-glass p-5 flex gap-4 items-start">
-            <div class="w-9 h-9 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0">
-              <i class="fas fa-map-pin text-violet-400 text-sm"></i>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-0.5">Location</div>
-              <p class="text-slate-300 text-sm">Khulna, Bangladesh</p>
-            </div>
-          </div>
-
-          <div class="card-glass p-5 flex gap-4 items-start">
-            <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
-              <i class="fas fa-clock text-cyan-400 text-sm"></i>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-0.5">Response Time</div>
-              <p class="text-slate-300 text-sm">Within 24 hours</p>
-            </div>
-          </div>
-
-          <!-- Social links mini -->
-          <div class="card-glass p-5">
-            <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-3">Find me on</div>
-            <div class="flex gap-3">
-              <a href="https://github.com/skmahin" target="_blank" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all">
-                <i class="fab fa-github text-sm"></i>
-              </a>
-              <a href="https://linkedin.com/in/skmahin" target="_blank" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/40 hover:bg-blue-500/10 transition-all">
-                <i class="fab fa-linkedin-in text-sm"></i>
-              </a>
-              <a href="https://facebook.com/skmahin" target="_blank" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all">
-                <i class="fab fa-facebook-f text-sm"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Form (Formspree integration) -->
-        <div class="lg:col-span-3 reveal reveal-delay-2">
-          <div class="card-glass p-7 border-gradient">
-            <!--
-              Replace YOUR_FORMSPREE_ID with your actual Formspree form ID.
-              Get it from https://formspree.io/
-            -->
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-5">
-
-              <div class="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label class="form-label" for="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required class="form-input" />
                 </div>
-                <div>
-                  <label class="form-label" for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="your@email.com" required class="form-input" />
-                </div>
-              </div>
-
-              <div>
-                <label class="form-label" for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="What's this about?" class="form-input" />
-              </div>
-
-              <div>
-                <label class="form-label" for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell me what's on your mind..." required class="form-input resize-none"></textarea>
-              </div>
-
-              <button type="submit" id="submit-btn" class="btn-primary w-full justify-center py-3">
-                <span id="btn-text"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
-              </button>
-
-              <!-- Success / Error Messages -->
-              <div id="form-success" class="hidden text-center py-3 px-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
-                <i class="fas fa-check-circle mr-2"></i>Message sent! I'll get back to you soon.
-              </div>
-              <div id="form-error" class="hidden text-center py-3 px-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
-                <i class="fas fa-exclamation-circle mr-2"></i>Oops! Something went wrong. Try emailing directly.
-              </div>
-
-            </form>
-          </div>
+            </div>
         </div>
 
-      </div>
+        <!-- ট্র্যাডিশনাল ফুটার -->
+        <footer>
+            Created by <strong>Mahin Sheikh</strong>
+            <span>mahin.pp.ua &bull; 2026</span>
+        </footer>
     </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════════════════════════ -->
-  <footer class="footer-glow bg-slate-950/80 py-10">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
-        <!-- Brand -->
-        <a href="#home" class="flex items-center gap-2 group">
-          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
-            <span class="font-display font-bold text-white text-xs">M</span>
-          </div>
-          <span class="font-display font-bold text-slate-400 text-sm group-hover:text-white transition-colors">skmahin.com</span>
-        </a>
-
-        <!-- Nav -->
-        <div class="flex items-center gap-6 text-xs text-slate-600">
-          <a href="#home" class="hover:text-slate-400 transition-colors">Home</a>
-          <a href="#about" class="hover:text-slate-400 transition-colors">About</a>
-          <a href="#projects" class="hover:text-slate-400 transition-colors">Projects</a>
-          <a href="#contact" class="hover:text-slate-400 transition-colors">Contact</a>
-        </div>
-
-        <!-- Copyright -->
-        <p class="text-xs text-slate-600">
-          &copy; <span id="year"></span> Mahin. Built with <span class="text-indigo-500">♥</span> in Khulna, BD.
-        </p>
-
-      </div>
-    </div>
-  </footer>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       JAVASCRIPT
-  ══════════════════════════════════════════════════════════════════ -->
-  <script>
-    // ── Year ──────────────────────────────────────────────────────
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ── Progress bar ──────────────────────────────────────────────
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    });
-
-    // ── Custom cursor ─────────────────────────────────────────────
-    const dot = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
-    });
-
-    // Smooth ring follow
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    // Ring expand on hoverable elements
-    document.querySelectorAll('a, button, input, textarea, .card-glass, .skill-tag').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
-    });
-
-    // ── Hamburger menu ────────────────────────────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamLines = hamburger.querySelectorAll('.ham-line');
-    let menuOpen = false;
-
-    hamburger.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle('open', menuOpen);
-
-      // Animate lines to X
-      if (menuOpen) {
-        hamLines[0].style.transform = 'translateY(8px) rotate(45deg)';
-        hamLines[1].style.opacity = '0';
-        hamLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-        hamLines[2].style.width = '1.25rem';
-      } else {
-        hamLines[0].style.transform = '';
-        hamLines[1].style.opacity = '';
-        hamLines[2].style.transform = '';
-        hamLines[2].style.width = '';
-      }
-    });
-
-    // Close menu on link click
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuOpen = false;
-        mobileMenu.classList.remove('open');
-        hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; l.style.width = ''; });
-      });
-    });
-
-    // ── Scroll reveal ─────────────────────────────────────────────
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => observer.observe(el));
-
-    // Trigger hero reveals immediately
-    document.querySelectorAll('#home .reveal').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 100);
-    });
-
-    // ── Contact Form (Formspree) ──────────────────────────────────
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('form-success');
-    const errorMsg = document.getElementById('form-error');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      btnText.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-      submitBtn.disabled = true;
-      successMsg.classList.add('hidden');
-      errorMsg.classList.add('hidden');
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          form.reset();
-          successMsg.classList.remove('hidden');
-          btnText.innerHTML = '<i class="fas fa-check mr-2"></i>Sent!';
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
-        errorMsg.classList.remove('hidden');
-        btnText.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
-        submitBtn.disabled = false;
-      }
-
-      setTimeout(() => {
-        btnText.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
-        submitBtn.disabled = false;
-      }, 4000);
-    });
-
-    // ── Active nav link on scroll ─────────────────────────────────
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            link.style.color = link.getAttribute('href') === `#${id}` ? '#e2e8f0' : '';
-          });
-        }
-      });
-    }, { threshold: 0.4 });
-
-    sections.forEach(s => sectionObserver.observe(s));
-  </script>
 
 </body>
 </html>
