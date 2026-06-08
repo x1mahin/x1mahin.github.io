@@ -43,7 +43,7 @@
             width: 64px;
             height: 64px;
             fill: none;
-            stroke: #df8543; /* ক্ল্যাসিক ওয়ার্ম অরেঞ্জ/টেরা-কোটা টোন */
+            stroke: #df8543; /* ক্ল্যাসিক ওয়ার্ম অরেঞ্জ টোন */
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -53,7 +53,7 @@
         .status-indicator {
             display: inline-flex;
             align-items: center;
-            background-color: #f5f6f8; /* লাইট গ্রে ব্যাকগ্রাউন্ড ব্যাজ */
+            background-color: #f5f6f8; 
             border: 1px solid #e2e4e9;
             padding: 8px 18px;
             border-radius: 100px;
@@ -93,12 +93,12 @@
         /* মেইন ইনফো বক্স */
         .profile-card {
             background-color: #ffffff; 
-            border: 1px solid #e2e4e9;   /* পিওর হোয়াইটের সাথে ম্যাচিং লাইট বর্ডার */
+            border: 1px solid #e2e4e9;   
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 30px;
             text-align: left;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); /* অত্যন্ত মৃদু শ্যাডো */
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); 
         }
 
         .card-section {
@@ -114,7 +114,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #7a8293;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
@@ -122,6 +122,26 @@
             color: #1a1d24;
             font-size: 1rem;
             font-weight: 500;
+        }
+
+        /* নতুন নোট সেকশনের স্পেশাল স্টাইল */
+        .note-box {
+            background-color: #fdfbf7; /* হালকা ওয়ার্ম/ক্রিমি ব্যাকগ্রাউন্ড যেন সহজে নজরে পড়ে */
+            border: 1px solid #f1e6d2;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 10px;
+        }
+
+        .note-box p {
+            font-size: 0.95rem;
+            color: #4a4d5c;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .note-box p:last-child {
+            margin-bottom: 0;
         }
 
         /* সাইড-বাই-সাইড লিংক গ্রিড */
@@ -134,7 +154,7 @@
         .link-block {
             display: flex;
             align-items: center;
-            background-color: #f8f9fa; /* হালকা অফ-হোয়াইট বাটন ব্যাকগ্রাউন্ড */
+            background-color: #f8f9fa; 
             border: 1px solid #e2e4e9;
             border-radius: 8px;
             overflow: hidden;
@@ -145,19 +165,23 @@
             border-color: #df8543; 
             background-color: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(223, 133, 67, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        /* বাম পাশের বাটন পার্ট */
-        .block-label {
+        /* বাম পাশের আইকন হোল্ডার */
+        .block-icon-wrapper {
             background-color: #edf0f2;
-            color: #4a4d5c;
-            padding: 12px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            min-width: 100px;
-            text-align: center;
+            padding: 12px;
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-right: 1px solid #e2e4e9;
+        }
+
+        .block-icon-wrapper svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* ডান পাশের লিংক পার্ট */
@@ -179,23 +203,7 @@
             font-weight: 500;
         }
 
-        /* স্পেশাল হাইলাইট: মেইন ওয়েবসাইট বাটন */
-        .link-block.main-site {
-            border-color: #df8543;
-            background-color: rgba(223, 133, 67, 0.02);
-        }
-
-        .link-block.main-site .block-label {
-            background-color: #df8543;
-            color: #ffffff;
-            border-right-color: #df8543;
-        }
-
-        .link-block.main-site:hover {
-            box-shadow: 0 4px 12px rgba(223, 133, 67, 0.15);
-        }
-
-        /* ট্র্যাডিশনাল ক্লিন ফুটার */
+        /* ট্র্যাডিশনাল ফুটার */
         footer {
             font-size: 0.85rem;
             color: #7a8293;
@@ -233,7 +241,7 @@
             Mahin Sheikh
         </div>
 
-        <!-- মেইন ইনফরমেশনカード -->
+        <!-- মেইন ইনফরমেশন কার্ড -->
         <div class="profile-card">
             
             <!-- লোকেশন সেকশন -->
@@ -242,54 +250,85 @@
                 <div class="info-detail">Khulna, Bangladesh 🇧🇩</div>
             </div>
 
+            <!-- নতুন নোট সেকশন (এখানে আরও জিনিস অ্যাড করতে পারবে) -->
+            <div class="card-section">
+                <div class="label-title">📝 Personal Note / Status</div>
+                <div class="note-box">
+                    <p>👋 Hey there! Welcome to my personal directory page. I am currently focusing on building clean, minimal web experiences and exploring backend workflows.</p>
+                    <p>🚀 Feel free to reach out through any of the channels below for collaborations or a quick chat!</p>
+					<p>📺 Live tv m3u links: https://tv2.mahin.pp.ua; https://tv.mahin.pp.ua</p>
+                </div>
+            </div>
+
             <!-- লিংক এবং কন্টাক্ট ডিরেক্টরি -->
             <div class="card-section">
                 <div class="label-title">🔗 Directory &amp; Contact</div>
                 <div class="links-container">
-                    
-                    
 
                     <!-- পার্সোনাল ইমেইল -->
                     <div class="link-block">
-                        <div class="block-label">Personal</div>
-                        <a href="mailto:smah@tuta.io" class="block-target">smah@tuta.io</a>
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="#E2001A"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <a href="mailto:mahin.sheikh.me@gmail.com" class="block-target">mahin.sheikh.me@gmail.com</a>
                     </div>
 
                     <!-- বিজনেস ইমেইল -->
                     <div class="link-block">
-                        <div class="block-label">Business</div>
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="#4682B4"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                        </div>
                         <a href="mailto:hi@mahin.pp.ua" class="block-target">hi@mahin.pp.ua</a>
+                    </div>
+					
+					<!-- WhatsApp (WhatsApp Green) -->
+                    <div class="link-block">
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.046c1.66.986 3.288 1.499 4.835 1.5l.006.001c5.393 0 9.778-4.381 9.782-9.774a9.71 9.71 0 0 0-2.86-6.924 9.716 9.716 0 0 0-6.915-2.863C6.046 1.4 1.66 5.786 1.657 11.179c-.001 1.642.435 3.243 1.264 4.642l-.1.365-1.054 3.849 3.942-1.033.36.214zM17.75 14.73c-.313-.155-1.854-.915-2.139-1.018-.286-.105-.494-.155-.701.155-.207.31-.803.102-1.011 1.017-.207.31-.414.34-.727.186-1.579-.788-2.614-1.403-3.666-3.21-.277-.476.277-.442.793-1.472.086-.176.043-.331-.022-.464-.064-.132-.55-1.32-.754-1.81-.198-.478-.4-.413-.55-.42-.142-.007-.306-.007-.471-.007-.166 0-.436.062-.664.31-.228.249-.871.851-.871 2.076 0 1.225.89 2.41 1.014 2.58.125.17 1.753 2.678 4.248 3.753.593.256 1.057.408 1.417.523.597.19 1.14.163 1.569.1.479-.072 1.472-.601 1.681-1.183.208-.581.208-1.082.145-1.182-.063-.105-.23-.158-.542-.315z"/></svg>
+                        </div>
+                        <a href="https://wa.me/8801729899948" target="_blank" class="block-target">+88 01729-899948</a>
                     </div>
 
                     <!-- টেলিগ্রাম -->
                     <div class="link-block">
-                        <div class="block-label">Telegram</div>
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="#0088cc"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.74 7.59-3.27 3.61-1.5 4.36-1.76 4.85-1.77.11 0 .35.03.51.16.13.12.17.28.19.39.02.1.04.3.02.5z"/></svg>
+                        </div>
                         <a href="https://t.me/SKMAHIN" target="_blank" class="block-target">t.me/SKMAHIN</a>
                     </div>
 
                     <!-- ফেসবুক -->
                     <div class="link-block">
-                        <div class="block-label">Facebook</div>
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </div>
                         <a href="https://facebook.com/x1mahin" target="_blank" class="block-target">facebook.com/x1mahin</a>
                     </div>
 
                     <!-- ইনস্টাগ্রাম -->
                     <div class="link-block">
-                        <div class="block-label">Instagram</div>
+                        <div class="block-icon-wrapper">
+                            <svg viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="instagram-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#fdf497" />
+                                        <stop offset="5%" stop-color="#fdf497" />
+                                        <stop offset="45%" stop-color="#fd5949" />
+                                        <stop offset="60%" stop-color="#d6249f" />
+                                        <stop offset="100%" stop-color="#285AEB" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#instagram-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                            </svg>
+                        </div>
                         <a href="https://instagram.com/x1mahin" target="_blank" class="block-target">instagram.com/x1mahin</a>
                     </div>
-
-                    <!-- হোয়াটসঅ্যাপ -->
-                    <div class="link-block">
-                        <div class="block-label">WhatsApp</div>
-                        <a href="https://wa.me/8801729899948" target="_blank" class="block-target">+880 1729-899948</a>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>
 
-        <!-- ট্র্যাডিশনাল ফুটার -->
+        <!-- ফুটার -->
         <footer>
             Created by <strong>Mahin Sheikh</strong>
             <span>mahin.pp.ua &bull; 2026</span>
